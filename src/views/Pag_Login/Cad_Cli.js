@@ -35,7 +35,7 @@ return(
           <br/>
             
            <TouchableOpacity onPress={Profissoes} style={estiloCad_cli.enviar}>
-            <Text style={estiloCad_cli.txtbt}>   Cadastrar </Text>
+            <Text style={estiloCad_cli.txtbt}>Cadastrar</Text>
             </TouchableOpacity>
                <br/>
               

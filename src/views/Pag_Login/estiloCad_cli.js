@@ -31,8 +31,8 @@ const estiloCad_cli = StyleSheet.create({
          position: 'relative',
          left:'20%',
          //top:'10%',
-         width:'10px',
-       height:'10px',
+         width:'5px',
+       height:'5px',
     },
      formulario:{
      position: 'relative',
@@ -49,19 +49,16 @@ const estiloCad_cli = StyleSheet.create({
         alignItems: 'center', //alinhamento dos itens 
    },
 
-   enviar:{
-       marginTop: '',
-        marginBottom: 20,
-        marginLeft: 20,
-        marginRight: 20,
-        borderRadius: 1,
-        height: 40,
-        width: 90,
-        borderWidth: 2,
-        borderColor: 'black',
-        backgroundColor: '',
-        justifyContent: 'center',
-        alignItems: 'center',
+ 
+        enviar:{
+        marginBottom: 10,
+        borderRadius: 6, //lados da borda
+        height: 30,     // altura
+        width: 100,
+        borderWidth: 1, //largura da borda
+        borderColor: 'black', //cor da borda
+        justifyContent: 'center', // colocar o conteudo (botao) no centro
+        alignItems: 'center', //alinhamento dos itens 
    },
      botaovoltar:{
             marginTop: 200, 

@@ -21,7 +21,7 @@
                 <View style={estiloCad.borda1}>
                     <View style={estiloCad.borda2}/>
 
-                     {/* <Image style={estiloCad.img} source={require('../../assets/img/logo1.png')}/>  */}
+                      {/* <Image style={estiloCad.img} source={require('../../assets/img/logo.png')}/>   */}
 
                  <Text style={estiloCad.txtBV}>Bem Vindo!</Text>
                   

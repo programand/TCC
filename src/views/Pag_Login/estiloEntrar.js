@@ -27,17 +27,38 @@ const estiloEntrar = StyleSheet.create({
         padding: 10,
     },
 
-     area:{
+    
+      area:{
          position: 'relative',
-         left:'37%',
-         top:'10%',
-         width:'320px',
-        height:'270px',
+         left:'20%',
+         //top:'10%',
+         width:'30px',
+       height:'30px',
     },
-    formulario:{
-        position: 'absolute',
-         display: 'block',
-    },
+     formulario:{
+     position: 'relative',
+        display: 'block',
+        justifyContent: 'center'
+     },
+    cxnome:{   
+        marginBottom: 10,
+        borderRadius: 7, //lados da borda
+        height: 20,     // altura
+        borderWidth: 2, //largura da borda
+        borderColor: 'black', //cor da borda
+        justifyContent: 'center', // colocar o conteudo (botao) no centro
+        alignItems: 'center', //alinhamento dos itens 
+   },
+   enviar:{
+        marginBottom: 10,
+        borderRadius: 6, //lados da borda
+        height: 30,     // altura
+        width: 100,
+        borderWidth: 1, //largura da borda
+        borderColor: 'black', //cor da borda
+        justifyContent: 'center', // colocar o conteudo (botao) no centro
+        alignItems: 'center', //alinhamento dos itens 
+   },
 
     rodape:{
         backgroundColor: '#48D1CC', //cor de fundo

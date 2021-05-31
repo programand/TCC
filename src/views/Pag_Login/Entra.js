@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity,} from 'react-native';
+import { Text, View, TouchableOpacity,TextInput, Image} from 'react-native';
 import estiloEntrar from './estiloEntrar';
 
 function Entra() {
@@ -11,19 +11,22 @@ return(
 
                 <Text style={estiloEntrar.titulo}> Faça seu Login</Text>     
 
+                     <Image  source={require('../../assets/img/logo.png')}/>   
+
                   <View style={estiloEntrar.area}>
                 <View style={estiloEntrar.formulario}>
+            <br/>
+            <br/>
                 
-
-                <form>
-            <label>
-                <input type="email" name="email" placeholder="E-mail"/><br/> <br/>
-                <input type="password" name="senha" placeholder="Insira sua senha:"/> <br/><br/>
-               
-             </label>
+                 <TextInput placeholder='E-mail:' keyboardType="email-address" style={estiloEntrar.cxnome} />
+               <br/>
             
-            <input type="submit" value="Entrar"/>
-            </form>  
+            <TextInput placeholder='Senha' type="Senha:" secureTextEntry={true} style={estiloEntrar.cxnome} /> 
+
+                  <TouchableOpacity style={estiloEntrar.enviar} >
+                <Text style={estiloEntrar.txtbt}>Cadastrar</Text>
+                </TouchableOpacity>
+            
               </View>
               </View>
             <br/>
@@ -31,6 +34,10 @@ return(
             <br/>
             <br/>
             <br/>
+            <br/>
+            <br/>
+
+         
             <View style={estiloEntrar.rodape}/>
 
 

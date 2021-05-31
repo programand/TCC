@@ -33,8 +33,8 @@ const estiloCad_Profissional = StyleSheet.create({
          position: 'relative',
          left:'20%',
          //top:'10%',
-         width:'10px',
-       height:'10px',
+         width:'60px',
+       height:'60px',
     },
      formulario:{
      position: 'relative',
@@ -65,7 +65,16 @@ const estiloCad_Profissional = StyleSheet.create({
         alignItems: 'center', //alinhamento dos itens 
 
     },  
-
+     enviar:{
+        marginBottom: 10,
+        borderRadius: 6, //lados da borda
+        height: 30,     // altura
+        width: 100,
+        borderWidth: 1, //largura da borda
+        borderColor: 'black', //cor da borda
+        justifyContent: 'center', // colocar o conteudo (botao) no centro
+        alignItems: 'center', //alinhamento dos itens 
+   },
     txtbt:{
         fontSize: 14,
         color: 'black',
@@ -77,7 +86,7 @@ const estiloCad_Profissional = StyleSheet.create({
      rodape:{
         backgroundColor: '#48D1CC', //cor de fundo
         width: '100%', //largura
-        height: '10%',// altura
+        height: '8%',// altura
         borderRadius: 10, // deixar as pontas redondas
 
     },

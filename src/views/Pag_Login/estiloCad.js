@@ -100,8 +100,8 @@ const estiloCad = StyleSheet.create({
 
      img:{
         margin: 5,
-         width: '100%', //largura
-        height: '100%',// altura
+         width: '70%', //largura
+        height: '10%',// altura
         marginLeft: '1', //posição da margem na esquerda
         marginRight: '1',  //posição da margem a direita
     },
