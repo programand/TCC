@@ -12,8 +12,15 @@ const estiloInicial = StyleSheet.create({
         height: '90%', //altura
         borderRadius: 20, // deixar as pontas redondas
     },
+    img:{
+        marginTop: 6,
+         width: '100%', //largura
+        height: '100%',// altura
+        marginLeft: 'auto',
+        marginRight: 'auto', 
+    },
     botaoLogin:{
-        margin: '',
+        marginTop:-40,
         marginBottom: 20,
         marginLeft: 20,
         marginRight: 20,
@@ -31,12 +38,6 @@ const estiloInicial = StyleSheet.create({
         fontWeight: 'bold',
         fontFamily: 'Arial'
     },
-    img:{
-        marginTop: 6,
-         width: '100%', //largura
-        height: '100%',// altura
-        marginLeft: 'auto',
-        marginRight: 'auto', 
-    }
+    
 })
 export default estiloInicial;

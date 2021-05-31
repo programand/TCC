@@ -46,7 +46,7 @@ const estiloCad = StyleSheet.create({
         marginBottom: 20,
         marginLeft: 20,
         marginRight: 20,
-        borderRadius: 1,
+        borderRadius: 7,
         height: 40,
         borderWidth: 2,
         borderColor: 'black',
@@ -100,10 +100,10 @@ const estiloCad = StyleSheet.create({
 
      img:{
         margin: 5,
-         width: '20%', //largura
-        height: '50%',// altura
-        marginLeft: 'auto', //posição da margem na esquerda
-        marginRight: 'auto',  //posição da margem a direita
+         width: '100%', //largura
+        height: '100%',// altura
+        marginLeft: '1', //posição da margem na esquerda
+        marginRight: '1',  //posição da margem a direita
     },
 
 

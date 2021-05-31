@@ -27,33 +27,49 @@ const estiloCad_cli = StyleSheet.create({
         padding: 10,
     },
 
-      area:{
+    area:{
          position: 'relative',
-         left:'37%',
-         top:'10%',
-         width:'320px',
-        height:'270px',
+         left:'20%',
+         //top:'10%',
+         width:'10px',
+       height:'10px',
     },
-    formulario:{
-        position: 'absolute',
-         display: 'block',
-    },
-    caixas:{
-        width: '300px',
-         height: '250px',
-    },
-
-
-
-
-
-     botaovoltar:{
-          marginTop: 10, 
+     formulario:{
+     position: 'relative',
+        display: 'block',
+        justifyContent: 'center'
+     },
+    cxnome:{   
         marginBottom: 10,
-        marginLeft: 800, //margem esquerda
-        marginRight: 20, //margem direita
         borderRadius: 7, //lados da borda
-        height: 40,     // altura
+        height: 20,     // altura
+        borderWidth: 2, //largura da borda
+        borderColor: 'black', //cor da borda
+        justifyContent: 'center', // colocar o conteudo (botao) no centro
+        alignItems: 'center', //alinhamento dos itens 
+   },
+
+   enviar:{
+       marginTop: '',
+        marginBottom: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        borderRadius: 1,
+        height: 40,
+        width: 90,
+        borderWidth: 2,
+        borderColor: 'black',
+        backgroundColor: '',
+        justifyContent: 'center',
+        alignItems: 'center',
+   },
+     botaovoltar:{
+            marginTop: 200, 
+        marginBottom: 10,
+        marginLeft: 80, //margem esquerda
+        marginRight: 20, //margem direita
+        borderRadius: 5, //lados da borda
+        height: 30,     // altura
         borderWidth: 2, //largura da borda
         borderColor: '#48D1CC', //cor da borda
         backgroundColor: '', //cor de fundo do botão

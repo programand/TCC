@@ -9,7 +9,7 @@ const estiloCad_Profissional = StyleSheet.create({
     borda:{
         backgroundColor: 'white', //cor de fundo
         width: '70%', //largura
-        height: '90%',// altura
+        height: '100%',// altura
         borderRadius: 20, // deixar as pontas redondas
     },
     borda2:{
@@ -25,6 +25,7 @@ const estiloCad_Profissional = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         padding: 10,
+        height: '20%',
     },
 
     
@@ -33,26 +34,36 @@ const estiloCad_Profissional = StyleSheet.create({
          left:'20%',
          //top:'10%',
          width:'10px',
-        height:'10px',
+       height:'10px',
     },
-    formulario:{
-        position: 'absolute',
-         display: 'block',
-         justifyContent: 'center'
-    },
-   
+     formulario:{
+     position: 'relative',
+        display: 'block',
+        justifyContent: 'center'
+     },
+
+   cxnome:{   
+        marginBottom: 10,
+        borderRadius: 7, //lados da borda
+        height: 20,     // altura
+        borderWidth: 2, //largura da borda
+        borderColor: 'black', //cor da borda
+        justifyContent: 'center', // colocar o conteudo (botao) no centro
+        alignItems: 'center', //alinhamento dos itens 
+   },
     botaovoltar:{
           marginTop: 200, 
         marginBottom: 10,
         marginLeft: 80, //margem esquerda
         marginRight: 20, //margem direita
-        borderRadius: 7, //lados da borda
-        height: 40,     // altura
+        borderRadius: 5, //lados da borda
+        height: 30,     // altura
         borderWidth: 2, //largura da borda
         borderColor: '#48D1CC', //cor da borda
         backgroundColor: '', //cor de fundo do botão
         justifyContent: 'center', // colocar o conteudo (botao) no centro
         alignItems: 'center', //alinhamento dos itens 
+
     },  
 
     txtbt:{
@@ -68,6 +79,7 @@ const estiloCad_Profissional = StyleSheet.create({
         width: '100%', //largura
         height: '10%',// altura
         borderRadius: 10, // deixar as pontas redondas
+
     },
 
 }) 

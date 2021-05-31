@@ -21,8 +21,10 @@
                 <View style={estiloCad.borda1}>
                     <View style={estiloCad.borda2}/>
 
+                     {/* <Image style={estiloCad.img} source={require('../../assets/img/logo1.png')}/>  */}
+
                  <Text style={estiloCad.txtBV}>Bem Vindo!</Text>
-                  {/* <Image style={estiloPagina1.img} source={require('../../assets/logo.png')}/> */}
+                  
                  <Text style={estiloCad.txtCad}>Cadastre - Se</Text>
 
             
