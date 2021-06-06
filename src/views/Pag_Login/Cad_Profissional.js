@@ -1,15 +1,30 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, TextInput, } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Alert, } from 'react-native';
 import estiloCad_Prof from './estiloCad_Prof';
 import {Picker} from '@react-native-picker/picker';
+import {db} from '../../../config/config';
+import { render } from 'react-dom';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
-
-function Cad_Prof  ({navigation}) {
+function Cad_Profissional  ({navigation}) {
 
     const voltar = () => {
         navigation.goBack('voltar'); 
     }
+class Cad_Profissinal extends React.Component{
+    State = {
+        Nome: ''
+    }; 
 
+    SalvaNome = () =>{
+        db.collection('/profissionais').add({
+            Nome: this.state.Nome
+        }).then(()=>{
+            Alert.alert('Cadastro enviado');
+        })
+    };
+}
+    render()
 return(
         <View style={estiloCad_Prof.container}>
 
@@ -20,7 +35,7 @@ return(
                   <View style={estiloCad_Prof.area}>
                 <View style={estiloCad_Prof.formulario}>
                
-            <TextInput  placeholder='Nome:' style={estiloCad_Prof.cxnome} />
+            <TextInput  placeholder='Nome:' style={estiloCad_Prof.cxnome} onChangeText={Nome => {this.setState({Nome})}} />
 
             <TextInput  placeholder='Idade:'keyboardType="numeric" style={estiloCad_Prof.cxnome}/>
 
@@ -40,6 +55,10 @@ return(
                  <Picker.Item key={4} value="Pedreiro(a)" label="Pedreiro(a)"/>
                  <Picker.Item key={5} value="Pintor(a)" label="Pintor(a)"/>
              </Picker>
+
+                <TouchableHighlight onPress={this.SalvaNome}>
+                    <Text>Add</Text>
+                </TouchableHighlight>
 
                 <TouchableOpacity style={estiloCad_Prof.enviar} >
                 <Text style={estiloCad_Prof.txtbt}>Cadastrar</Text>
@@ -61,4 +80,5 @@ return(
         </View>
     )
 }
-export default Cad_Prof;
+
+export default Cad_Profissional;
