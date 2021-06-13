@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text, View, TouchableOpacity, TextInput, Alert, } from 'react-native';
 import estiloCad_Prof from './estiloCad_Prof';
 import {Picker} from '@react-native-picker/picker';
@@ -6,25 +6,33 @@ import {db} from '../../../config/config';
 import { render } from 'react-dom';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
-function Cad_Profissional  ({navigation}) {
+ function Cad_Profissional  ({navigation}) {
 
     const voltar = () => {
         navigation.goBack('voltar'); 
     }
-class Cad_Profissinal extends React.Component{
-    State = {
-        Nome: ''
-    }; 
-
-    SalvaNome = () =>{
-        db.collection('/profissionais').add({
-            Nome: this.state.Nome
-        }).then(()=>{
-            Alert.alert('Cadastro enviado');
+    const [nome, setNome] = useState([]);
+    function loadNome(){
+        db.collection('profissionais').get().then((resultados)) => {
+            const nome = []
+            resultados.forEach((doc)) => {
+                nome.push({n: doc.n, text: doc.data() ['Nome'],
+                })
+                setNome(nome)
+            }
+        }
+    }
+    const addNome = text => {
+        db.collection('profissionais').add({
+            text: text,
+        }).then(() =>{
+            loadNome()
         })
     };
-}
-    render()
+    useEffect(()=>{
+        loadNome()
+    })
+
 return(
         <View style={estiloCad_Prof.container}>
 
@@ -34,8 +42,16 @@ return(
 
                   <View style={estiloCad_Prof.area}>
                 <View style={estiloCad_Prof.formulario}>
-               
-            <TextInput  placeholder='Nome:' style={estiloCad_Prof.cxnome} onChangeText={Nome => {this.setState({Nome})}} />
+               <div>
+                   {nome.map((nome, index)) } (
+                       <Nome
+                       nome={nome}
+                       index={nome['nome']}
+                       
+                   />)}
+                   <Nome addNome={addNome}/>
+               </div>
+            <TextInput  placeholder='Nome:' style={estiloCad_Prof.cxnome}  />
 
             <TextInput  placeholder='Idade:'keyboardType="numeric" style={estiloCad_Prof.cxnome}/>
 
