@@ -5,22 +5,25 @@ import {Picker} from '@react-native-picker/picker';
 import {db} from '../../../config/config';
 import { render } from 'react-dom';
 import { TouchableHighlight } from 'react-native-gesture-handler';
+import firebase from 'firebase';
+
 
  function Cad_Profissional  ({navigation}) {
 
     const voltar = () => {
         navigation.goBack('voltar'); 
     }
+
     const [nome, setNome] = useState([]);
     function loadNome(){
-        db.collection('profissionais').get().then((resultados)) => {
+        db.collection('profissionais').get().then((resultados) => {
             const nome = []
-            resultados.forEach((doc)) => {
-                nome.push({n: doc.n, text: doc.data() ['Nome'],
+            resultados.forEach((doc) => {
+                nome.push({id: doc.id, text: doc.data() ['Nome'],
                 })
                 setNome(nome)
-            }
-        }
+            })
+        })
     }
     const addNome = text => {
         db.collection('profissionais').add({
