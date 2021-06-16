@@ -3,7 +3,7 @@ import { View, Picker, StyleSheet } from "react-native";
 import estiloContratar from  './estiloContratar';
 
 const Contratar = () => {
-  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedValue, setSelectedValue] = useState(""); //comentário de teste
   return (
     <View style={estiloContratar.container}>
       <View style={estiloContratar.borda1}>
