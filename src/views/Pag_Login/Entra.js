@@ -36,6 +36,15 @@ return(
             <br/>
             <br/>
             <br/>
+               <br/>
+
+   <br/>
+
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
 
          
             <View style={estiloEntrar.rodape}/>

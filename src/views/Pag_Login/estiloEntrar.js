@@ -60,13 +60,13 @@ const estiloEntrar = StyleSheet.create({
         alignItems: 'center', //alinhamento dos itens 
    },
 
-    rodape:{
-        backgroundColor: '#48D1CC', //cor de fundo
+     rodape: {
+	backgroundColor: '#48D1CC', //cor de fundo
         width: '100%', //largura
         height: '10%',// altura
-        borderRadius: 20, // deixar as pontas redondas
-    },
-
+        borderRadius: 10, // deixar as pontas redondas
+        position: 'relative'
+	}
     
 
 

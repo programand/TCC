@@ -14,27 +14,27 @@ import firebase from 'firebase';
         navigation.goBack('voltar'); 
     }
 
-    const [nome, setNome] = useState([]);
-    function loadNome(){
-        db.collection('profissionais').get().then((resultados) => {
-            const nome = []
-            resultados.forEach((doc) => {
-                nome.push({id: doc.id, text: doc.data() ['Nome'],
-                })
-                setNome(nome)
-            })
-        })
-    }
-    const addNome = text => {
-        db.collection('profissionais').add({
-            text: text,
-        }).then(() =>{
-            loadNome()
-        })
-    };
-    useEffect(()=>{
-        loadNome()
-    })
+    // const [nome, setNome] = useState([]);
+    // function loadNome(){
+    //     db.collection('profissionais').get().then((resultados) => {
+    //         const nome = []
+    //         resultados.forEach((doc) => {
+    //             nome.push({id: doc.id, text: doc.data() ['Nome'],
+    //             })
+    //             setNome(nome)
+    //         })
+    //     })
+    // }
+    // const addNome = text => {
+    //     db.collection('profissionais').add({
+    //         text: text,
+    //     }).then(() =>{
+    //         loadNome()
+    //     })
+    // };
+    // useEffect(()=>{
+    //     loadNome()
+    // })
 
 return(
         <View style={estiloCad_Prof.container}>

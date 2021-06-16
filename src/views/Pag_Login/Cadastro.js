@@ -41,6 +41,8 @@
                  <TouchableOpacity onPress={Entra} style={estiloCad.botaoEntrar}>                   
                      <Text style={estiloCad.botaotxtEntrar}>Login</Text>
                  </TouchableOpacity>
+                    <br/>
+
                  <View style={estiloCad.rodape}/>
 
              </View>
