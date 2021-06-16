@@ -24,7 +24,7 @@ export default function App() {
             <Stack.Screen name="Entra" component={Entra}/> */}
          </Stack.Navigator>  
               
-    //   </NavigationContainer>
+       </NavigationContainer>
   
     
   );
