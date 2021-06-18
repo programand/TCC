@@ -16,12 +16,12 @@ export default function App() {
   return (
        <NavigationContainer>
           <Stack.Navigator>
-          {/* <Stack.Screen name="Inicial" component={Inicial}/>     */}
+           <Stack.Screen name="Inicial" component={Inicial}/>
           <Stack.Screen name="Contratar" component={Contratar}/>
-           {/* <Stack.Screen name="Login" component={Login}/>
+           <Stack.Screen name="Login" component={Login}/>
            <Stack.Screen name="Cad_Profissional" component={Cad_Profissional}/>
             <Stack.Screen name="Cad_Cli" component={Cad_Cli}/>
-            <Stack.Screen name="Entra" component={Entra}/> */}
+            <Stack.Screen name="Entra" component={Entra}/>
          </Stack.Navigator>  
               
        </NavigationContainer>

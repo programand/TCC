@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, Alert, } from 'react-native';
 import estiloCad_Prof from './estiloCad_Prof';
 import {Picker} from '@react-native-picker/picker';
@@ -14,27 +14,17 @@ import firebase from 'firebase';
         navigation.goBack('voltar'); 
     }
 
-    // const [nome, setNome] = useState([]);
-    // function loadNome(){
-    //     db.collection('profissionais').get().then((resultados) => {
-    //         const nome = []
-    //         resultados.forEach((doc) => {
-    //             nome.push({id: doc.id, text: doc.data() ['Nome'],
-    //             })
-    //             setNome(nome)
-    //         })
-    //     })
-    // }
-    // const addNome = text => {
-    //     db.collection('profissionais').add({
-    //         text: text,
-    //     }).then(() =>{
-    //         loadNome()
-    //     })
-    // };
-    // useEffect(()=>{
-    //     loadNome()
-    // })
+    const [nome, onChangeNome] = useState('');
+    const [idade, onChangeIdade] = useState('');
+    const [endereco, onChangeEndereco] = useState('');
+    const [telefone, onChangeTelefone] = useState('');
+    const [email, onChangeEmail] = useState('');
+    const [senha, onChangeSenha] = useState('');
+    const [profissao, setSelectedProfissao] = useState('');
+
+    const salvar = event => { 
+        alert(nome + ', ' + idade + ', ' + endereco + ', ' + telefone + ', ' + email + ', ' + senha + ', ' + profissao)
+    }
 
 return(
         <View style={estiloCad_Prof.container}>
@@ -45,7 +35,7 @@ return(
 
                   <View style={estiloCad_Prof.area}>
                 <View style={estiloCad_Prof.formulario}>
-               <div>
+               {/* <div>
                    {nome.map((nome, index)) } (
                        <Nome
                        nome={nome}
@@ -53,20 +43,20 @@ return(
                        
                    />)}
                    <Nome addNome={addNome}/>
-               </div>
-            <TextInput  placeholder='Nome:' style={estiloCad_Prof.cxnome}  />
+               </div> */}
+            <TextInput  placeholder='Nome:' style={estiloCad_Prof.cxnome} onChangeText={onChangeNome} value={nome} />
 
-            <TextInput  placeholder='Idade:'keyboardType="numeric" style={estiloCad_Prof.cxnome}/>
+            <TextInput  placeholder='Idade:'keyboardType="numeric" style={estiloCad_Prof.cxnome} value={idade} onChangeText={onChangeIdade} />
 
-            <TextInput placeholder='Endereço:' style={estiloCad_Prof.cxnome} />
+            <TextInput placeholder='Endereço:' style={estiloCad_Prof.cxnome} value={endereco} onChangeText={onChangeEndereco} />
 
-            <TextInput placeholder="Telefone"  keyboardType="phone-pad" style={estiloCad_Prof.cxnome} />
+            <TextInput placeholder="Telefone"  keyboardType="phone-pad" style={estiloCad_Prof.cxnome} value={telefone} onChangeText={onChangeTelefone} />
             
-            <TextInput placeholder='E-mail:' keyboardType="email-address" style={estiloCad_Prof.cxnome} />
+            <TextInput placeholder='E-mail:' keyboardType="email-address" style={estiloCad_Prof.cxnome} value={email} onChangeEmail={onChangeEmail} />
             
-            <TextInput placeholder="Senha:" secureTextEntry={true} style={estiloCad_Prof.cxnome} /> 
+            <TextInput placeholder="Senha:" secureTextEntry={true} style={estiloCad_Prof.cxnome} value={senha} onChangeText={onChangeSenha} /> 
 
-             <Picker style={estiloCad_Prof.cxnome} > 
+             <Picker style={estiloCad_Prof.cxnome} selectedValue={profissao} onValueChange={(value, index) => setSelectedProfissao(value)} > 
                  <Picker.Item key={0} value="" label="Profissão"/>
                  <Picker.Item key={1} value="Cuidador(a)" label="Cuidador(a)"/>
                  <Picker.Item key={2} value="Faxineiro(a)" label="Faxineiro(a)"/>
@@ -74,12 +64,12 @@ return(
                  <Picker.Item key={4} value="Pedreiro(a)" label="Pedreiro(a)"/>
                  <Picker.Item key={5} value="Pintor(a)" label="Pintor(a)"/>
              </Picker>
-
-                <TouchableHighlight onPress={this.SalvaNome}>
+{/* 
+                <TouchableHighlight >
                     <Text>Add</Text>
-                </TouchableHighlight>
+                </TouchableHighlight> */}
 
-                <TouchableOpacity style={estiloCad_Prof.enviar} >
+                <TouchableOpacity style={estiloCad_Prof.enviar} onPress={salvar}>
                 <Text style={estiloCad_Prof.txtbt}>Cadastrar</Text>
                 </TouchableOpacity>
                
