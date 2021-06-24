@@ -8,22 +8,55 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
 import firebase from 'firebase';
 
 
- function Cad_Profissional  ({navigation}) {
+
+ function Cad_Profissional  ({navigation, route}) {
+
+    const db = firebase.firestore()
+    const {user, userData} = route.params
 
     const voltar = () => {
         navigation.goBack('voltar'); 
     }
 
-    const [nome, onChangeNome] = useState('');
-    const [idade, onChangeIdade] = useState('');
-    const [endereco, onChangeEndereco] = useState('');
-    const [telefone, onChangeTelefone] = useState('');
-    const [email, onChangeEmail] = useState('');
-    const [senha, onChangeSenha] = useState('');
-    const [profissao, setSelectedProfissao] = useState('');
+    
+    const [nome, onChangeNome] = useState(user.displayName)
+    const [idade, onChangeIdade] = useState('')
+    const [endereco, onChangeEndereco] = useState('')
+    const [telefone, onChangeTelefone] = useState('')
+    const [email, onChangeEmail] = useState('')
+    //const [senha, onChangeSenha] = useState('')
+    const [profissao, setSelectedProfissao] = useState('')
 
-    const salvar = event => { 
-        alert(nome + ', ' + idade + ', ' + endereco + ', ' + telefone + ', ' + email + ', ' + senha + ', ' + profissao)
+
+    const handleSave = () => {
+        const newUserData = {
+            'nome' : nome,
+            'endereco' : endereco,
+            'idade' : idade,
+            'telefone' : telefone,
+            'email' : email,
+            'profissao' : profissao,
+            'uid' : user.uid
+        }
+        db.collection('profissionais').add(newUserData)
+        navigation.navigate('Contratar', {userData : newUserData})
+    }
+    async function loginGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider()
+      const db = firebase.firestore()
+
+      const result = await firebase.auth().signInWithPopup(provider)
+      if(result){
+        let userData = null
+        db.collection('profissionais').where('uid', '==', result.user.uid).get().then((querySnapshot) => {
+          if(querySnapshot.size == 1){
+            userData = querySnapshot.docs[0].data()
+            navigation.navigate('Contratar', {userData: userData})
+          } else {
+            navigation.navigate('Cadastro', {user: result.user, userData: userData})
+          }
+        })
+      }
     }
 
 return(
@@ -35,15 +68,7 @@ return(
 
                   <View style={estiloCad_Prof.area}>
                 <View style={estiloCad_Prof.formulario}>
-               {/* <div>
-                   {nome.map((nome, index)) } (
-                       <Nome
-                       nome={nome}
-                       index={nome['nome']}
-                       
-                   />)}
-                   <Nome addNome={addNome}/>
-               </div> */}
+            
             <TextInput  placeholder='Nome:' style={estiloCad_Prof.cxnome} onChangeText={onChangeNome} value={nome} />
 
             <TextInput  placeholder='Idade:'keyboardType="numeric" style={estiloCad_Prof.cxnome} value={idade} onChangeText={onChangeIdade} />
@@ -53,8 +78,10 @@ return(
             <TextInput placeholder="Telefone"  keyboardType="phone-pad" style={estiloCad_Prof.cxnome} value={telefone} onChangeText={onChangeTelefone} />
             
             <TextInput placeholder='E-mail:' keyboardType="email-address" style={estiloCad_Prof.cxnome} value={email} onChangeEmail={onChangeEmail} />
-            
-            <TextInput placeholder="Senha:" secureTextEntry={true} style={estiloCad_Prof.cxnome} value={senha} onChangeText={onChangeSenha} /> 
+             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Button title='Login com Google' onPress={loginGoogle} />
+          </View>
+            {/* <TextInput placeholder="Senha:" secureTextEntry={true} style={estiloCad_Prof.cxnome} value={senha} onChangeText={onChangeSenha} />  */}
 
              <Picker style={estiloCad_Prof.cxnome} selectedValue={profissao} onValueChange={(value, index) => setSelectedProfissao(value)} > 
                  <Picker.Item key={0} value="" label="Profissão"/>
@@ -64,12 +91,9 @@ return(
                  <Picker.Item key={4} value="Pedreiro(a)" label="Pedreiro(a)"/>
                  <Picker.Item key={5} value="Pintor(a)" label="Pintor(a)"/>
              </Picker>
-{/* 
-                <TouchableHighlight >
-                    <Text>Add</Text>
-                </TouchableHighlight> */}
 
-                <TouchableOpacity style={estiloCad_Prof.enviar} onPress={salvar}>
+
+                <TouchableOpacity style={estiloCad_Prof.enviar} onPress={handleSave}>
                 <Text style={estiloCad_Prof.txtbt}>Cadastrar</Text>
                 </TouchableOpacity>
                

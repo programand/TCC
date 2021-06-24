@@ -15,6 +15,9 @@
      const Entra = () => {
          navigation.navigate('Entra')
      }
+
+     
+
      return(
          <View style={estiloCad.container}>
 
