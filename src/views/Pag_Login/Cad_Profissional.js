@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, Alert, } from 'react-native';
 import estiloCad_Prof from './estiloCad_Prof';
 import {Picker} from '@react-native-picker/picker';
-import {db} from '../../../config/config';
+// import {db} from '../../../config/config';
 import { render } from 'react-dom';
 import { TouchableHighlight } from 'react-native-gesture-handler';
-import firebase from 'firebase';
+import firebase from '../../../firebase';
 
 
 
